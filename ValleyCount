@@ -1,0 +1,37 @@
+using System;
+
+namespace VallyCountConsoleApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string input = "UD"; Output =0
+            //string input = "DU"; Output = 1
+            string input = "UDDDUDUU"; //output =1;
+            int valleyCount = GetValleyCount(input);
+            Console.WriteLine(valleyCount);
+            
+        }
+
+        public static int GetValleyCount(string input) {
+            char[] inputArry= input.ToCharArray();
+            int downCount = 0;
+            int levelZeror = 0;
+            foreach (char c in inputArry) { 
+            if(c == 'U')
+                {
+                    downCount--;
+                    if (downCount == 0) {
+                        levelZeror++;
+                    }
+                }
+                if (c == 'D') {
+                    downCount++;
+                }
+            }
+            return levelZeror;
+        
+        }
+    }
+}
